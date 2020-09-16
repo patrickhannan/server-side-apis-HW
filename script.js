@@ -72,7 +72,8 @@ $(document).ready(function () {
             var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
             var tempCard = $("<p>").text("Temperature: " + response.list[i].main.temp + " °F");
             var humidityCard = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
-
+            $("<h2>").removeClass("hide")
+            
         forecastCard.append(dayCard, weatherIcon, tempCard, humidityCard);
         $("#forecast-days").append(forecastCard);
         }
