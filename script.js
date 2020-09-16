@@ -86,18 +86,25 @@ $(document).ready(function () {
             url: queryURLUV,
             method: "GET",
         }).then(function (response) {
-            uviText = $("<span>").text("UV Index: ");
-            uvRange = $("<span>").text(response.value);
+            uviText = $("#uvText").text("UV Index: ");
+            uviRange = $("#uvRange").text(response.value);
 
         if (response.value >= 1 && response.value < 6) {
-            uvRange.addClass("uv uv-favorable");
+            uviRange.addClass("uv uv-favorable");
+            uviRange.removeClass("uv-moderate");
+            uviRange.removeClass("uv-severe");
+            
         } else if (response.value >= 6 && response.value < 8) {
-            uvRange.addClass("uv uv-moderate");
+            uviRange.addClass("uv uv-moderate");
+            uviRange.removeClass("uv-favorable");
+            uviRange.removeClass("uv-severe");
         } else if (response.value >= 8) {
-            uvRange.addClass("uv uv-severe");
+            uviRange.addClass("uv uv-severe");
+            uviRange.removeClass("uv-moderate");
+            uviRange.removeClass("uv-favorable");
         }
 
-        $("#current-weather").append(uviText, uvRange);
+        $("#current-weather").append(uviText, uviRange);
       });
     }
 }
