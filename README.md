@@ -16,7 +16,7 @@ This project is an app that shows the current weather and the 5 day forecast of 
 
 In order to access this application, the user can click on the link below to the home page of the website. From there they can use the navbar at the top to navigate the website.
 
-* [Coding Quiz](https://patrickhannan.github.io/server-side-apis-HW/)
+* [Weather Dashboard](https://patrickhannan.github.io/server-side-apis-HW/)
 
 From there, the user can enter their city in the search bar. They will shown the city, the date, temperature, humidity, and wind speed at the moment, as well as 5 forecast cards for their city.
 
