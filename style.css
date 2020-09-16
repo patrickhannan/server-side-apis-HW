@@ -19,4 +19,13 @@
 
 .hide {
     display: none !important;
-  }
+}
+
+.forecast {
+    background-color: #3698dd;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    width: 17%;
+    float: left;
+}
