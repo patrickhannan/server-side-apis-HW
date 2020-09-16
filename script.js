@@ -37,6 +37,7 @@ $(document).ready(function () {
   function showWeather(city){
     var queryURLWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
     var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
+    var queryURLUV = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
     var latitude = []
     var longitude = []
 
@@ -79,6 +80,17 @@ $(document).ready(function () {
         }
         
     });
+    
+    function uvIndex() {
+        
+
+        $.ajax({
+            url: queryURLUV,
+            method: "GET",
+        }).then(function (response) {
+            
+    });
+  }
 }
 
 })
