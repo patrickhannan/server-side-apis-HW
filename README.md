@@ -20,6 +20,10 @@ In order to access this application, the user can click on the link below to the
 
 From there, the user can enter their city in the search bar. They will shown the city, the date, temperature, humidity, and wind speed at the moment, as well as 5 forecast cards for their city.
 
+Below is a image of how the page will look when the user enters a city into the search bar and clicks search.
+
+![Example Dashboard](./images/dashboard.png)
+
 
 ## Credits
 
