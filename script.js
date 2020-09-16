@@ -18,6 +18,11 @@ $(document).ready(function () {
         }
   })
 
+  $(".list-group-item").on("click", function () {
+        listItem = $(this).text();
+        showWeather(listItem);
+  });
+
   function showHistory(){
         cityHistory = JSON.parse(localStorage.getItem("city"));
         var historyList = $("#history-list");
