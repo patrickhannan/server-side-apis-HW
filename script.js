@@ -68,15 +68,16 @@ $(document).ready(function () {
         $("#forecast-days").empty();
         for (var i = 3; i < 40; i += 8) {
             var forecastCard = $("<div>").attr("class", "card forecast");
-            var dayCard = $("<h4>").text(moment().format("MMM Do YY"))
+            var dayCard = $("<h4>").text(response.list[i].dt_txt)
             var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
             var tempCard = $("<p>").text("Temperature: " + response.list[i].main.temp + " °F");
             var humidityCard = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
             $("<h2>").removeClass("hide")
-            
+
         forecastCard.append(dayCard, weatherIcon, tempCard, humidityCard);
         $("#forecast-days").append(forecastCard);
         }
+        
     });
 }
 
