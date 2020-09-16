@@ -35,10 +35,13 @@ $(document).ready(function () {
   }
 
   function showWeather(city){
-    var queryURLWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
-    var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
+    var queryURLWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
+    var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
     var latitude = []
     var longitude = []
+
+
+   
 
     $("#filler").attr("class", "hide")
 
@@ -65,7 +68,7 @@ $(document).ready(function () {
         $("#forecast-days").empty();
         for (var i = 3; i < 40; i += 8) {
             var forecastCard = $("<div>").attr("class", "card forecast");
-            var dayCard = $("<h4>").text(response.list[i].dt_txt)
+            var dayCard = $("<h4>").text(moment().format("MMM Do YY"))
             var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
             var tempCard = $("<p>").text("Temperature: " + response.list[i].main.temp + " °F");
             var humidityCard = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
