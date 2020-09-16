@@ -66,7 +66,7 @@ $(document).ready(function () {
             var humidityCard = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
 
         forecastCard.append(dayCard, weatherIcon, tempCard, humidityCard);
-        $("#forecast-days").append(newDiv);
+        $("#forecast-days").append(forecastCard);
         }
     });
 }
