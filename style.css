@@ -29,3 +29,23 @@
     width: 17%;
     float: left;
 }
+
+
+.uv {
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .uv-favorable {
+    background-color: #9cc601;
+  }
+  
+  .uv-moderate {
+    background-color: #f9bc01;
+  }
+  
+  
+  .uv-severe {
+    background-color: #f54f24;
+  }
+  

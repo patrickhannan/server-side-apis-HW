@@ -37,10 +37,8 @@ $(document).ready(function () {
   function showWeather(city){
     var queryURLWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
     var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
-    var queryURLUV = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
     var latitude = []
     var longitude = []
-
 
    
 
@@ -56,7 +54,7 @@ $(document).ready(function () {
         $("#humidity").text("Humidity: " + response.main.humidity + "%");
         $("#wind-speed").text("Wind Speed: " + response.wind.speed + " MPH");
         latitude.push(response.coord.lat)
-        longitude.push(response.coord.lon);
+        longitude.push(response.coord.lon)
         uvIndex(latitude, longitude);
     })
   
@@ -73,7 +71,7 @@ $(document).ready(function () {
             var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
             var tempCard = $("<p>").text("Temperature: " + response.list[i].main.temp + " °F");
             var humidityCard = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
-            $("<h2>").removeClass("hide")
+            $("<h2>").text("5-Day Forecast:")
 
         forecastCard.append(dayCard, weatherIcon, tempCard, humidityCard);
         $("#forecast-days").append(forecastCard);
@@ -81,16 +79,27 @@ $(document).ready(function () {
         
     });
     
-    function uvIndex() {
-        
+    function uvIndex(latitude, longitude) {
+        var queryURLUV = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=8f7feb434e1136cc2c1ab8d74b64a2f6";
 
         $.ajax({
             url: queryURLUV,
             method: "GET",
         }).then(function (response) {
-            
-    });
-  }
+            uviText = $("<span>").text("UV Index: ");
+            uvRange = $("<span>").text(response.value);
+
+        if (response.value >= 1 && response.value < 6) {
+            uvRange.addClass("uv uv-favorable");
+        } else if (response.value >= 6 && response.value < 8) {
+            uvRange.addClass("uv uv-moderate");
+        } else if (response.value >= 8) {
+            uvRange.addClass("uv uv-severe");
+        }
+
+        $("#current-weather").append(uviText, uvRange);
+      });
+    }
 }
 
 })
