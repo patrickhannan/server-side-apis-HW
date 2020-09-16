@@ -3,3 +3,8 @@
     text-align: center;
     font-size: 30pt;
 }
+
+#sidebar {
+    background-color: #f8f9fa;
+    padding: 15px;
+}
