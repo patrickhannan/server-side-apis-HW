@@ -62,7 +62,7 @@ $(document).ready(function () {
         url: queryURLForecast,
         method: "GET",
     }).then(function (response) {
-        $("#forecast-blocks").empty();
+        $("#forecast-days").empty();
         for (var i = 3; i < 40; i += 8) {
             var forecastCard = $("<div>").attr("class", "card forecast");
             var dayCard = $("<h4>").text(response.list[i].dt_txt)
